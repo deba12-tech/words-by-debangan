@@ -143,12 +143,34 @@ export default function BookReader({ collections, poems, settings }: BookReaderP
         .sort((a, b) => a.display_order - b.display_order);
 
       collectionPoems.forEach((poem) => {
-        if (pageCounter % 2 !== 0) {
+        if (pageCounter % 2 === 0) {
           list.push({
             index: pageCounter++,
             type: 'blank',
           });
         }
+
+        list.push({
+          index: pageCounter++,
+          type: 'poem_spread',
+          poemId: poem.id,
+          title: poem.title,
+          content: (
+            <div className={`flex flex-col h-full p-8 md:p-14 text-${poem.alignment} overflow-y-auto overflow-x-hidden custom-scrollbar relative`}>
+              <div className="absolute right-0 top-1/4 bottom-1/4 ledger-stitch-line opacity-20 pointer-events-none" />
+              <div className={`my-auto whitespace-pre-wrap break-words font-bengali leading-loose text-primary-theme letterpress-ink
+                ${poem.font_size === 'sm' ? 'text-xs sm:text-sm' : ''}
+                ${poem.font_size === 'md' ? 'text-sm sm:text-base' : ''}
+                ${poem.font_size === 'lg' ? 'text-base sm:text-lg' : ''}
+                ${poem.font_size === 'xl' ? 'text-lg sm:text-xl' : ''}
+                ${poem.emphasis === 'italic' ? 'italic' : ''}
+                ${poem.emphasis === 'bold' ? 'font-bold' : ''}
+              `}>
+                {poem.content}
+              </div>
+            </div>
+          ),
+        });
 
         list.push({
           index: pageCounter++,
@@ -181,27 +203,6 @@ export default function BookReader({ collections, poems, settings }: BookReaderP
             </div>
           ),
         });
-
-        list.push({
-          index: pageCounter++,
-          type: 'poem_spread',
-          poemId: poem.id,
-          title: poem.title,
-          content: (
-            <div className={`flex flex-col h-full p-8 md:p-14 text-${poem.alignment} overflow-y-auto overflow-x-hidden custom-scrollbar`}>
-              <div className={`my-auto whitespace-pre-wrap break-words font-bengali leading-loose text-primary-theme letterpress-ink
-                ${poem.font_size === 'sm' ? 'text-xs sm:text-sm' : ''}
-                ${poem.font_size === 'md' ? 'text-sm sm:text-base' : ''}
-                ${poem.font_size === 'lg' ? 'text-base sm:text-lg' : ''}
-                ${poem.font_size === 'xl' ? 'text-lg sm:text-xl' : ''}
-                ${poem.emphasis === 'italic' ? 'italic' : ''}
-                ${poem.emphasis === 'bold' ? 'font-bold' : ''}
-              `}>
-                {poem.content}
-              </div>
-            </div>
-          ),
-        });
       });
     });
 
@@ -226,12 +227,34 @@ export default function BookReader({ collections, poems, settings }: BookReaderP
       });
 
       unassignedPoems.forEach((poem) => {
-        if (pageCounter % 2 !== 0) {
+        if (pageCounter % 2 === 0) {
           list.push({
             index: pageCounter++,
             type: 'blank',
           });
         }
+
+        list.push({
+          index: pageCounter++,
+          type: 'poem_spread',
+          poemId: poem.id,
+          title: poem.title,
+          content: (
+            <div className={`flex flex-col h-full p-8 md:p-14 text-${poem.alignment} overflow-y-auto overflow-x-hidden custom-scrollbar relative`}>
+              <div className="absolute right-0 top-1/4 bottom-1/4 ledger-stitch-line opacity-20 pointer-events-none" />
+              <div className={`my-auto whitespace-pre-wrap break-words font-bengali leading-loose text-primary-theme letterpress-ink
+                ${poem.font_size === 'sm' ? 'text-xs sm:text-sm' : ''}
+                ${poem.font_size === 'md' ? 'text-sm sm:text-base' : ''}
+                ${poem.font_size === 'lg' ? 'text-base sm:text-lg' : ''}
+                ${poem.font_size === 'xl' ? 'text-lg sm:text-xl' : ''}
+                ${poem.emphasis === 'italic' ? 'italic' : ''}
+                ${poem.emphasis === 'bold' ? 'font-bold' : ''}
+              `}>
+                {poem.content}
+              </div>
+            </div>
+          ),
+        });
 
         list.push({
           index: pageCounter++,
@@ -260,27 +283,6 @@ export default function BookReader({ collections, poems, settings }: BookReaderP
                 <div className="mt-8 text-[11px] text-secondary-theme/60 font-sans tracking-wide">
                   PUBLISHED: {new Date(poem.published_at).toLocaleDateString('bn-BD', { year: 'numeric', month: 'long' })}
                 </div>
-              </div>
-            </div>
-          ),
-        });
-
-        list.push({
-          index: pageCounter++,
-          type: 'poem_spread',
-          poemId: poem.id,
-          title: poem.title,
-          content: (
-            <div className={`flex flex-col h-full p-8 md:p-14 text-${poem.alignment} overflow-y-auto overflow-x-hidden custom-scrollbar`}>
-              <div className={`my-auto whitespace-pre-wrap break-words font-bengali leading-loose text-primary-theme letterpress-ink
-                ${poem.font_size === 'sm' ? 'text-xs sm:text-sm' : ''}
-                ${poem.font_size === 'md' ? 'text-sm sm:text-base' : ''}
-                ${poem.font_size === 'lg' ? 'text-base sm:text-lg' : ''}
-                ${poem.font_size === 'xl' ? 'text-lg sm:text-xl' : ''}
-                ${poem.emphasis === 'italic' ? 'italic' : ''}
-                ${poem.emphasis === 'bold' ? 'font-bold' : ''}
-              `}>
-                {poem.content}
               </div>
             </div>
           ),
@@ -519,7 +521,7 @@ export default function BookReader({ collections, poems, settings }: BookReaderP
       case 'bio':
         return (
           <div className="flex flex-col h-full justify-between p-8 md:p-12 relative">
-            <div className="absolute left-0 top-1/4 bottom-1/4 ledger-stitch-line opacity-20 pointer-events-none" />
+            <div className="absolute right-0 top-1/4 bottom-1/4 ledger-stitch-line opacity-20 pointer-events-none" />
             <div className="flex flex-col items-center text-center mt-6">
               <div className="w-28 h-36 relative mb-6 shadow-md border border-current/15 rounded overflow-hidden">
                 <img 
@@ -556,7 +558,7 @@ export default function BookReader({ collections, poems, settings }: BookReaderP
             </div>
 
             <div className="mt-8 text-center text-[10px] text-secondary-theme/60 font-sans border-t border-dashed border-current/25 pt-4">
-              &copy; {new Date().getFullYear()} {settings.author_name}. All rights reserved.
+              {settings.author_name}. All rights reserved.
             </div>
           </div>
         );

@@ -280,7 +280,7 @@ export default function LandingPageContent({ settings }: LandingPageContentProps
           @words.by.debangan_
         </a>
         <p className="text-[9px] tracking-[0.25em] text-secondary-theme/60 uppercase font-sans">
-          Designed for reading &bull; &copy; {new Date().getFullYear()}
+          Designed for reading
         </p>
       </footer>
 
