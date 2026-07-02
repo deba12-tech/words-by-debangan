@@ -156,30 +156,8 @@ export default function BookReader({ collections, poems, settings }: BookReaderP
           poemId: poem.id,
           title: poem.title,
           content: (
-            <div className={`flex flex-col h-full p-8 md:p-14 text-${poem.alignment} overflow-y-auto overflow-x-hidden custom-scrollbar relative`}>
-              <div className="absolute right-0 top-1/4 bottom-1/4 ledger-stitch-line opacity-20 pointer-events-none" />
-              <div className={`my-auto whitespace-pre-wrap break-words font-bengali leading-loose text-primary-theme letterpress-ink
-                ${poem.font_size === 'sm' ? 'text-xs sm:text-sm' : ''}
-                ${poem.font_size === 'md' ? 'text-sm sm:text-base' : ''}
-                ${poem.font_size === 'lg' ? 'text-base sm:text-lg' : ''}
-                ${poem.font_size === 'xl' ? 'text-lg sm:text-xl' : ''}
-                ${poem.emphasis === 'italic' ? 'italic' : ''}
-                ${poem.emphasis === 'bold' ? 'font-bold' : ''}
-              `}>
-                {poem.content}
-              </div>
-            </div>
-          ),
-        });
-
-        list.push({
-          index: pageCounter++,
-          type: 'poem_spread',
-          poemId: poem.id,
-          title: poem.title,
-          content: (
             <div className="flex flex-col h-full p-8 md:p-14 relative overflow-y-auto custom-scrollbar">
-              <div className="absolute left-0 top-1/4 bottom-1/4 ledger-stitch-line opacity-20 pointer-events-none" />
+              <div className="absolute right-0 top-1/4 bottom-1/4 ledger-stitch-line opacity-20 pointer-events-none" />
               <div className="my-auto">
                 <div className="mb-4 text-xs font-sans tracking-widest uppercase font-semibold text-secondary-theme">
                   {collection.name}
@@ -199,6 +177,28 @@ export default function BookReader({ collections, poems, settings }: BookReaderP
                 <div className="mt-8 text-[11px] text-secondary-theme/60 font-sans tracking-wide">
                   PUBLISHED: {new Date(poem.published_at).toLocaleDateString('bn-BD', { year: 'numeric', month: 'long' })}
                 </div>
+              </div>
+            </div>
+          ),
+        });
+
+        list.push({
+          index: pageCounter++,
+          type: 'poem_spread',
+          poemId: poem.id,
+          title: poem.title,
+          content: (
+            <div className={`flex flex-col h-full p-8 md:p-14 text-${poem.alignment} overflow-y-auto overflow-x-hidden custom-scrollbar relative`}>
+              <div className="absolute left-0 top-1/4 bottom-1/4 ledger-stitch-line opacity-20 pointer-events-none" />
+              <div className={`my-auto whitespace-pre-wrap break-words font-bengali leading-loose text-primary-theme letterpress-ink
+                ${poem.font_size === 'sm' ? 'text-xs sm:text-sm' : ''}
+                ${poem.font_size === 'md' ? 'text-sm sm:text-base' : ''}
+                ${poem.font_size === 'lg' ? 'text-base sm:text-lg' : ''}
+                ${poem.font_size === 'xl' ? 'text-lg sm:text-xl' : ''}
+                ${poem.emphasis === 'italic' ? 'italic' : ''}
+                ${poem.emphasis === 'bold' ? 'font-bold' : ''}
+              `}>
+                {poem.content}
               </div>
             </div>
           ),
@@ -240,30 +240,8 @@ export default function BookReader({ collections, poems, settings }: BookReaderP
           poemId: poem.id,
           title: poem.title,
           content: (
-            <div className={`flex flex-col h-full p-8 md:p-14 text-${poem.alignment} overflow-y-auto overflow-x-hidden custom-scrollbar relative`}>
-              <div className="absolute right-0 top-1/4 bottom-1/4 ledger-stitch-line opacity-20 pointer-events-none" />
-              <div className={`my-auto whitespace-pre-wrap break-words font-bengali leading-loose text-primary-theme letterpress-ink
-                ${poem.font_size === 'sm' ? 'text-xs sm:text-sm' : ''}
-                ${poem.font_size === 'md' ? 'text-sm sm:text-base' : ''}
-                ${poem.font_size === 'lg' ? 'text-base sm:text-lg' : ''}
-                ${poem.font_size === 'xl' ? 'text-lg sm:text-xl' : ''}
-                ${poem.emphasis === 'italic' ? 'italic' : ''}
-                ${poem.emphasis === 'bold' ? 'font-bold' : ''}
-              `}>
-                {poem.content}
-              </div>
-            </div>
-          ),
-        });
-
-        list.push({
-          index: pageCounter++,
-          type: 'poem_spread',
-          poemId: poem.id,
-          title: poem.title,
-          content: (
             <div className="flex flex-col h-full p-8 md:p-14 relative overflow-y-auto custom-scrollbar">
-              <div className="absolute left-0 top-1/4 bottom-1/4 ledger-stitch-line opacity-20 pointer-events-none" />
+              <div className="absolute right-0 top-1/4 bottom-1/4 ledger-stitch-line opacity-20 pointer-events-none" />
               <div className="my-auto">
                 <div className="mb-4 text-xs font-sans tracking-widest uppercase font-semibold text-secondary-theme">
                   অন্যান্য
@@ -283,6 +261,28 @@ export default function BookReader({ collections, poems, settings }: BookReaderP
                 <div className="mt-8 text-[11px] text-secondary-theme/60 font-sans tracking-wide">
                   PUBLISHED: {new Date(poem.published_at).toLocaleDateString('bn-BD', { year: 'numeric', month: 'long' })}
                 </div>
+              </div>
+            </div>
+          ),
+        });
+
+        list.push({
+          index: pageCounter++,
+          type: 'poem_spread',
+          poemId: poem.id,
+          title: poem.title,
+          content: (
+            <div className={`flex flex-col h-full p-8 md:p-14 text-${poem.alignment} overflow-y-auto overflow-x-hidden custom-scrollbar relative`}>
+              <div className="absolute left-0 top-1/4 bottom-1/4 ledger-stitch-line opacity-20 pointer-events-none" />
+              <div className={`my-auto whitespace-pre-wrap break-words font-bengali leading-loose text-primary-theme letterpress-ink
+                ${poem.font_size === 'sm' ? 'text-xs sm:text-sm' : ''}
+                ${poem.font_size === 'md' ? 'text-sm sm:text-base' : ''}
+                ${poem.font_size === 'lg' ? 'text-base sm:text-lg' : ''}
+                ${poem.font_size === 'xl' ? 'text-lg sm:text-xl' : ''}
+                ${poem.emphasis === 'italic' ? 'italic' : ''}
+                ${poem.emphasis === 'bold' ? 'font-bold' : ''}
+              `}>
+                {poem.content}
               </div>
             </div>
           ),
